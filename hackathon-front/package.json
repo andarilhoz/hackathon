@@ -1,0 +1,59 @@
+{
+  "name": "simple-mtg",
+  "version": "0.0.1",
+  "description": "Simple mtg application",
+  "apidoc": {
+    "title": "Simple MTG API Documentation",
+    "url": "http://localhost:8000"
+  },
+  "main": "app.js",
+  "scripts": {
+    "test": "./node_modules/mocha/bin/mocha",
+    "start": "node app.js",
+    "load": "node ./src/loadSets.js",
+    "import": "node ./src/importSets.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/fabiomaciel/simple-mtg.git"
+  },
+  "keywords": [
+    "mtg",
+    "magic",
+    "the",
+    "gathering",
+    "magic",
+    "app"
+  ],
+  "author": "Fabio Maciel, Magno Gouveia",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/fabiomaciel/simple-mtg/issues"
+  },
+  "homepage": "https://github.com/fabiomaciel/simple-mtg#readme",
+  "dependencies": {
+    "bcryptjs": "^2.3.0",
+    "bluebird": "^3.4.6",
+    "body-parser": "^1.15.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "ejs": "^2.5.2",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "express-validator": "^2.21.0",
+    "gravatar": "^1.6.0",
+    "moment": "^2.15.1",
+    "mongoose": "^4.6.4",
+    "mongoose-unique-validator": "^1.0.2",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.0.0",
+    "request": "^2.75.0",
+    "winston": "^2.2.0",
+    "winston-daily-rotate-file": "^1.3.1"
+  },
+  "devDependencies": {
+    "chai": "^3.5.0",
+    "mocha": "^3.1.2"
+  }
+}
