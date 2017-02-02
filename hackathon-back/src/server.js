@@ -2,6 +2,9 @@
 const express  = require('express'),
       app      = express(),
       usuarios = require('./routes/user'),
+      login    = require('./routes/login'),
+      logout    = require('./routes/logout'),
+      me       = require('./routes/me'),
       bodyParser   = require('body-parser'),
       passport     = require('passport'),
       cookieParser = require('cookie-parser'),
@@ -31,7 +34,10 @@ passport.deserializeUser(Account.deserializeUser())
 
 
 
-app.use('/usuario',usuarios)
+app.use('/api/usuario',usuarios)
+app.use('/api/login',login)
+app.use('/api/logout',logout)
+app.use('/api/me',me)
 
 module.exports = app
 

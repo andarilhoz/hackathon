@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col s5 card">
+    <form #f="ngForm" novalidate>
+
+      <div class="input-field col s12">
+        <input type="text" class="validate" name="username" [ngModel]="user.name" 
+          required minlength="5" maxlength="10" #username="ngModel"
+          [class.invalid]="!username.valid && !(username.pristine && !f.submitted)">
+        <label data-error="Username required (min 5 characters). " for="username">Username</label>
+      </div>  
+
+      <div class="input-field col s12">
+        <input type="email" class="validate" name="email" [ngModel]="user.email"
+          required validateEqual="confirmEmail" reverse="true" #email="ngModel" 
+          [class.invalid]="!email.valid && !(email.pristine && !f.submitted)">
+        <label for="email" data-error="Email is required john@doe.com">Email</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input type="text" name="confirmEmail" [ngModel]="user.confirmEmail"
+          required validateEqual="email" reverse="false" #confirmEmail="ngModel"  
+          [class.invalid]="!confirmEmail.valid && !(confirmEmail.pristine && !f.submitted)">
+        <label for="confirmEmail" data-error="Email mismatch" >Confirm Email</label>
+      </div>
+
+      <pre>{{ confirmEmail.valid }}</pre>
+
+      <div class="input-field col s12">
+        <input type="password" class="validate" name="password" [ngModel]="user.password"
+          required validateEqual="confirmPassword" reverse="true"  #password="ngModel"
+          [class.invalid]="!password.valid && !(password.pristine && !f.submitted)">
+        <label for="password" data-error="Password id required" >Password</label>
+      </div>  
+
+      <button class="btn waves-effect waves-light" (click)="save(f.value,f.valid)" >Submit
+        </button>
+    </form>
+  </div>
+</div>
