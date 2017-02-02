@@ -1,0 +1,7 @@
+.brand-logo img{
+    height: 2em;
+    margin-left: 0.2em;
+}
+.nav-wrapper {
+    background: url(./assets/barra_top.png);
+}

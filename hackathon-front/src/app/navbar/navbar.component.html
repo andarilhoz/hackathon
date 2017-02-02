@@ -1,0 +1,18 @@
+<nav>
+  <div class="nav-wrapper">
+    <a href="#" class="brand-logo"><img src="./assets/saveLogo2.jpg" alt=""></a>
+    <ul id="nav-mobile" class="right hide-on-med-and-down">
+      <li><a routerLink="/home">Home</a></li>
+      <li><a routerLink="/about">Sobre</a></li>
+      <li><a routerLink="/dashboard">Dashboard</a></li>
+      <li *ngIf="!logged"><a routerLink="/login">Login</a></li>
+      <li *ngIf="logged"><a routerLink="/login">Logout</a></li>
+      <li *ngIf="logged">
+          <a href="#" onClick="return false;" class="badge">
+              {{ user.username }}
+          </a>
+      </li>
+    </ul>
+  </div>
+</nav>
+      

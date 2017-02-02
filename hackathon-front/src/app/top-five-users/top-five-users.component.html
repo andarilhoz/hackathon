@@ -1,0 +1,21 @@
+<div class="row">
+  <div class="col s10 offset-s1">
+    <table>
+            <thead>
+              <tr>
+                  <th data-field="name">Nome</th>
+                  <th data-field="spended">Gasto</th>
+                  <th data-field="saved">Economia</th>
+              </tr>
+            </thead>
+
+            <tbody>
+              <tr *ngFor="let user of topUsers">
+                <td>{{user.username | uppercase}}</td>
+                <td>{{user.spended | currency:"BRL"}}</td>
+                <td>{{user.percent}}</td>
+              </tr>
+            </tbody>
+    </table>
+  </div>
+</div>

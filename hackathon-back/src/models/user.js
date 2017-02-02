@@ -8,8 +8,7 @@ const mongoose = require('mongoose'),
 
 const UserSchema = mongoose.Schema({
 	username: {type: String, unique: true, dropDups: true, required: true},
-	ultimoLogin: {type: Date, default: Date.now} ,
-    entryDate: Date,
+	cadastro: {type: Date, default: Date.now} ,
     email: {type: String, unique: true, dropDups: true, required: true},
     cpf: String,
     inscricao: String,
