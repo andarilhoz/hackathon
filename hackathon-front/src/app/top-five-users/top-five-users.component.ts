@@ -30,6 +30,7 @@ export class TopFiveUsersComponent implements OnInit {
                 user.userScore += this.calculateLastTwoScore(user,index)
               })
             })
+            this.topUsers.sort((user1: User, user2:User) => user1.userScore < user2.userScore ? 1 : -1)
           },
           error => {
             console.log(error);
