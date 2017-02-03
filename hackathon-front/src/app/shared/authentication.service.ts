@@ -8,7 +8,7 @@ import 'rxjs/add/operator/map'
 export class AuthenticationService {
 
     mainUrl: string = window.location.origin
-    baseUrl: String = this.mainUrl.substring(0,this.mainUrl.lastIndexOf(':')) + ':8000/api/'
+    baseUrl: String = this.mainUrl/*.substring(0,this.mainUrl.lastIndexOf(':')) + ':8000*/ + '/api/'
 
     emittLogin = new EventEmitter<boolean>();
     constructor(private http: Http) { }

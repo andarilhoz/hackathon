@@ -4,6 +4,8 @@ import { Router } from '@angular/router';
 import { UserService } from '../shared/user.service';
 import { AuthenticationService } from '../shared/authentication.service';
 
+declare var $: any
+
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
@@ -21,6 +23,16 @@ export class NavbarComponent implements OnInit {
   
   
   ngOnInit() {
+    	let nav = $('.nav-container');
+    	$(window).scroll(function () {
+        if ($(this).scrollTop() > 300) {
+          nav.addClass("f-nav");
+        } else {
+          nav.removeClass("f-nav");
+        }
+      });
+
+
       if(this.router.url != '/login' && this.router.url != '/register'  ){
         this.getUserData();
       }

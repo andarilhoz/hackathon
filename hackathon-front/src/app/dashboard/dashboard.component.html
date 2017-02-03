@@ -8,7 +8,7 @@
     <b>Nº de Instalação: </b><span>{{user.inscricao}}</span>
   </div>
   <div class="col s6">
-    <b>Posição no Ranking:</b> <span>1º</span> 
+    <b>Posição no Ranking:</b> <span>{{myData.pos}}º</span> 
   </div>
 </div>
 
@@ -21,7 +21,7 @@
     <b>(Pontuação Acumulada)</b>
     </div>
     <div class="card-content white  center-align">
-      <p>Oi</p>
+      <p>{{myData.userScore}}</p>
     </div>
   </div>
   </div>
@@ -36,7 +36,7 @@
     <b>(Percentual de Economia do último mês)</b>
     </div>
     <div class="card-content white  center-align">
-      <p>Oi</p>
+      <p>{{myData.lastMonth}}%</p>
     </div>
   </div>
   </div>
@@ -48,7 +48,7 @@
     <b>(Média anual dos gastos)</b>
     </div>
     <div class="card-content white  center-align">
-      <p>Oi</p>
+      <p>{{myData.media | currency:'BRL':true}}</p>
     </div>
   </div>
   </div>

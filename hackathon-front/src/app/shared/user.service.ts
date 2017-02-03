@@ -12,7 +12,7 @@ import { AuthenticationService } from './authentication.service';
 @Injectable()
 export class UserService {
   mainUrl: string = window.location.origin
-  baseUrl: String = this.mainUrl.substring(0,this.mainUrl.lastIndexOf(':')) + ':8000/api/'
+  baseUrl: String = this.mainUrl/*.substring(0,this.mainUrl.lastIndexOf(':')) + ':8000*/ + '/api/'
   
   constructor(
     private http: Http,
@@ -54,6 +54,15 @@ export class UserService {
                .catch((error: any) => Observable.throw(error.json().errors || 'Server error'))
     
   }
+
+  getMeAll(me: User): Observable<Array<any>> {
+    return this.http
+               .get(this.baseUrl + 'usuario')
+               .map((r: Response) => {return [r.json(),me]})
+               .catch((error: any) => Observable.throw(error.json().errors || 'Server error'))
+    
+  }
+  
 
   delete(id): Observable<string> {
         return this.http

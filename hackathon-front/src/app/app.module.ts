@@ -22,6 +22,7 @@ import { ForgotPasswordComponent } from './forgot-password/forgot-password.compo
 import { CarouselComponent } from './carousel/carousel.component';
 import { GlobalComponent } from './global/global.component';
 import { AssuntoComponent } from './assunto/assunto.component';
+import { LogoSpaceComponent } from './logo-space/logo-space.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AssuntoComponent } from './assunto/assunto.component';
     ForgotPasswordComponent,
     CarouselComponent,
     GlobalComponent,
-    AssuntoComponent
+    AssuntoComponent,
+    LogoSpaceComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
-<nav>
-  <div class="nav-wrapper  grey lighten-1 ">
+<nav class="nav-container">
+    <div class="nav-wrapper navbar">
     <a routerLink="/home" class="brand-logo"><img src="./assets/light-bulb.png" alt=""></a>
+      <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
         <ul class="right hide-on-med-and-down">
           <li><a routerLink="/about">Sobre</a></li>
           <li><a routerLink="/global">Dashboard Global</a></li>
@@ -9,9 +10,9 @@
           <li *ngIf="!logged && router.url == '/login'"><a routerLink="/register">Registrar</a></li>
           <li *ngIf="logged">
               <a routerLink="/dashboard" class="badge">
-                  {{ user.username }}
+                  {{ user.username  | uppercase}}
               </a>
           </li>
         </ul>
-  </div>
-</nav>
+    </div>
+  </nav>

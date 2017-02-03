@@ -1,10 +1,10 @@
-<section *ngIf="router.url != '/register' && router.url != '/login' " class="page page-header blue">
+<section *ngIf="router.url == '/' || router.url == '/home'  " class="page page-header blue">
   <div class="container center-align">
-    <h2 class="white-text">Solid for technical teams. Magic for business users.
+    <h2 class="white-text">DICA DE ECONOMIA: {{dicaAtual}}
       <span class="heading-divider"></span>
     </h2>
     <div class="row">
-      <span class="white-text">{{ router.url}}</span>
+      <!--<span class="white-text">{{ router.url}}</span>-->
     </div>
   </div>
 </section>
