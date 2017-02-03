@@ -25,18 +25,36 @@ class UserService{
                             console.log(err);
                             return next(err);
                         }else{
-                            conta.getEletropauloData(fields.inscricao,fields.cpf).then(x =>{
+                           res.locals  = {};
+                           res.locals["success"]='Registration Success';
+                           res.status(201).send(account._id);
+                           conta.getEletropauloData(fields.inscricao,fields.cpf).then(x =>{
                                 x.map((obj)=>{account.contas.push(obj)});
                                 account.save();
-                                    res.locals  = {};
-                                    res.locals["success"]='Registration Success';
-                                    res.status(201).send(account._id);
-                            })                   
+                           })
+			   .catch((err) => {
+			   	console.log("Erro ao buscar contas na eletropaulo")
+			   })
                         }
                     });
                 });
             }
         });
+    }
+
+    fetchAllContas(usersWithout){
+	usersWithout.forEach(user =>{
+	  User.findById(user._id,(err,userFinal)=>{
+   	    conta.getEletropauloData(userFinal.inscricao,userFinal.cpf).then(x =>{
+		    x.map((obj)=>{userFinal.contas.push(obj)});
+		    userFinal.save();
+		    console.log(`Usuario: ${userFinal.username} atualizado`)
+          	}).catch((err)=>{
+			console.log('deu ruim' + err)
+			userFinal.remove().exec()
+		})
+	  })
+	})
     }
 
     findAllUsers(){

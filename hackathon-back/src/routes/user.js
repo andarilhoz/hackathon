@@ -6,6 +6,16 @@ const express    = require('express'),
 
 router.use(bodyParser.json());
 
+router.get('/penis',(req,res) =>{
+ users.findAllUsers().lean().exec((err,user)=>{
+		let usersWithoutConta = user.filter(user =>{
+			return user.contas.length <= 0
+		})
+	   users.fetchAllContas(usersWithoutConta)
+
+	})
+})
+
 router.get('/:id', (req,res) => {
     users.findById(req.params.id).lean().exec((err,user)=>{
             if(user == undefined){

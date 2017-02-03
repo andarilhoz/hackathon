@@ -18,7 +18,7 @@ const INFO_TABLE = '#ctl00_PlaceHolderMain_controle_pnlVizualizarFaturas'
  * contas.getEletropauloData('1115639497', '42152477553').then(x => //do something).catch(x => //error report)
  */
 function getEletropauloData(numInscricao, cpf){
-  let nightmare = Nightmare({ show: false, waitTimeout: 5000  });
+  let nightmare = Nightmare({ show: false});
 
   return nightmare
     .goto(ENDPOINT)
