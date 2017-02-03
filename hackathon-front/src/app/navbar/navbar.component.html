@@ -1,14 +1,14 @@
 <nav>
-  <div class="nav-wrapper">
-    <a routerLink="/home" class="brand-logo"><img src="./assets/saveLogo2.jpg" alt=""></a>
+  <div class="nav-wrapper  grey lighten-1 ">
+    <a routerLink="/home" class="brand-logo"><img src="./assets/light-bulb.png" alt=""></a>
         <ul class="right hide-on-med-and-down">
           <li><a routerLink="/about">Sobre</a></li>
-          <li><a routerLink="/dashboard">Dashboard</a></li>
-          <li *ngIf="!logged && router.url != '/login'"><a routerLink="/login">Login</a></li>
-          <li *ngIf="logged"><a routerLink="/login">Logout</a></li>
-          <li *ngIf="!logged && router.url == '/login'"><a routerLink="/register">Register</a></li>
+          <li><a routerLink="/global">Dashboard Global</a></li>
+          <li *ngIf="!logged && router.url != '/login'"><a routerLink="/login">Entrar</a></li>
+          <li *ngIf="logged"><a routerLink="/login">Sair</a></li>
+          <li *ngIf="!logged && router.url == '/login'"><a routerLink="/register">Registrar</a></li>
           <li *ngIf="logged">
-              <a href="#" onClick="return false;" class="badge">
+              <a routerLink="/dashboard" class="badge">
                   {{ user.username }}
               </a>
           </li>

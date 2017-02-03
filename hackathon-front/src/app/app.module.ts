@@ -20,6 +20,8 @@ import { ProfileComponent } from './profile/profile.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
 import { CarouselComponent } from './carousel/carousel.component';
+import { GlobalComponent } from './global/global.component';
+import { AssuntoComponent } from './assunto/assunto.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +37,9 @@ import { CarouselComponent } from './carousel/carousel.component';
     ProfileComponent,
     DashboardComponent,
     ForgotPasswordComponent,
-    CarouselComponent
+    CarouselComponent,
+    GlobalComponent,
+    AssuntoComponent
   ],
   imports: [
     BrowserModule,
