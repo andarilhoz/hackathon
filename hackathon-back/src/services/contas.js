@@ -1,7 +1,6 @@
 'use strict'
 
-var Nightmare = require('nightmare');       
-var nightmare = Nightmare({ show: false });
+var Nightmare = require('nightmare');
 
 
 const ENDPOINT = 'https://www.aeseletropaulo.com.br/mobile/servicos/login?args=48E1EC4A7C8200A7BA64C2876D52E93B8AE3BB67C76FBB592A01EDE9F0458A13'
@@ -15,11 +14,14 @@ const INFO_TABLE = '#ctl00_PlaceHolderMain_controle_pnlVizualizarFaturas'
 /**
  * @param numInscricao
  * @param cpf
- * return a promise contains an array of object, include (valor, mes, situacao)
+ * @return A promise contains an array of object, include (valor, mes, situacao)
+ * 
+ * Usage eg.
+ * contas.getEletropauloData('1115639497', '42152477553').then(x => //do something).catch(x => //error report)
  */
 function getEletropauloData(numInscricao, cpf){
+  let nightmare = Nightmare({ show: false, waitTimeout: 5000  });
 
-  var table = `${INFO_TABLE} table tr`
   return nightmare
     .goto(ENDPOINT)
     .wait(NUM_INSCRICAO_INPUT)
@@ -42,11 +44,9 @@ function getEletropauloData(numInscricao, cpf){
     .then(function (result) {
       result.shift()
       return result
-    }).catch(function (error) {
-      console.error('Failed to search results', error);
-    });
+    })
  }  
 
-//getEletropauloData('0115639497', '32152477553').then(x => console.log(x))
+
 
 exports.getEletropauloData = getEletropauloData
