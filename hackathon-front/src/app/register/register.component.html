@@ -26,11 +26,33 @@
       <pre>{{ confirmEmail.valid }}</pre>
 
       <div class="input-field col s12">
-        <input type="password" class="validate" name="password" [ngModel]="user.password"
+        <input type="password" class="va
+        0lidate" name="password" [ngModel]="user.password"
           required validateEqual="confirmPassword" reverse="true"  #password="ngModel"
           [class.invalid]="!password.valid && !(password.pristine && !f.submitted)">
         <label for="password" data-error="Password id required" >Password</label>
       </div>  
+      
+      <div class="input-field col s12">
+        <input id="confirmPassword" type="password" name="confirmPassword" [ngModel]="user.confirmPassword"
+          required validateEqual="password" reverse="false" #confirmPassword="ngModel" 
+          [class.invalid]="!confirmPassword.valid && !(confirmPassword.pristine && !f.submitted)">
+        <label for="confirmPassword" data-error="Password mismatch">Confirm Password</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="cpf" type="text" name="cpf" [ngModel]="user.cpf"
+          required #cpf="ngModel" 
+          [class.invalid]="cpf.valid && !(cpf.pristine && !f.submitted)">
+        <label for="cpf" data-error="CPF não confere">CPF</label>
+      </div>
+
+      <div class="input-field col s12">
+        <input id="inscricao" type="text" name="inscricao" [ngModel]="user.inscricao"
+          required #inscricao="ngModel" 
+          [class.invalid]="inscricao.valid && !(inscricao.pristine && !f.submitted)">
+        <label for="inscricao" data-error="inscricao não confere">inscricao</label>
+      </div>
 
       <button class="btn waves-effect waves-light" (click)="save(f.value,f.valid)" >Submit
         </button>

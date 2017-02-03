@@ -4,16 +4,14 @@
             <thead>
               <tr>
                   <th data-field="name">Nome</th>
-                  <th data-field="spended">Gasto</th>
-                  <th data-field="saved">Economia</th>
+                  <th data-field="spended">Score</th>
               </tr>
             </thead>
 
             <tbody>
               <tr *ngFor="let user of topUsers">
                 <td>{{user.username | uppercase}}</td>
-                <td>{{user.spended | currency:"BRL"}}</td>
-                <td>{{user.percent}}</td>
+                <td>{{user.userScore}}</td>
               </tr>
             </tbody>
     </table>

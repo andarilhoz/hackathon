@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router, CanActivate } from '@angular/router';
 
 import { User } from '../interfaces/user';
+import { UserService } from '../shared/user.service';
 
 
 
@@ -15,7 +16,7 @@ declare var Materialize: any;
 export class RegisterComponent implements OnInit {
 
 
-  constructor(/*private userService: UserService,*/ private router: Router) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   public user: User;
 
@@ -27,17 +28,18 @@ export class RegisterComponent implements OnInit {
       confirmEmail: '',
       cpf: '',
       inscricao: '',
-      id: '',
+      _id: '',
       spended: '',
-      percent: ''
+      percent: '',
+      userScore: 0,
+      userCount: 0,
+      contas: []
     }
   }
 
   save(model: User, isValid: boolean) {
-    alert("oi")
-    Materialize.toast(`Usuario criado com sucesso `, 4000, 'blue rounded')
     if(isValid){
-      /*this.userService.register(model).subscribe(
+      this.userService.register(model).subscribe(
         userId => {
           Materialize.toast(`Usuario criado com sucesso `, 4000, 'blue rounded')
           this.router.navigate(['/']);
@@ -47,7 +49,7 @@ export class RegisterComponent implements OnInit {
             Materialize.toast((error.length > 1 ? error : error.message),4000, 'red rounded');
           })        
         }
-      );*/
+      );
     }
   }
 

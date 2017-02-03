@@ -1,5 +1,5 @@
 export interface User {
-    id: string;
+    _id: string;
     username: string;
     cpf: string;
     inscricao: string;
@@ -8,4 +8,7 @@ export interface User {
     spended: string;
     percent: string;
     password: string;
+    userScore: number;
+    userCount: number;
+    contas: Array<any>;
 }

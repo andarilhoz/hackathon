@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { User } from '../interfaces/user';
+import { UserService } from '../shared/user.service';
 
 
 @Component({
@@ -10,14 +11,48 @@ import { User } from '../interfaces/user';
 })
 export class TopFiveUsersComponent implements OnInit {
 
-  topUsers : Array<any>  = [
-    {id: '1',username:'magno',spended:'100',percent: '10%'},
-    {id: '2',username:'joao',spended:'50',percent: '30%'},
-    {id: '3',username:'marcos',spended:'120',percent: '80%'}
-  ]
-  constructor() { }
+  topUsers : Array<any>  = [ ]
+
+  constructor(private userService: UserService) { }
+
+  parseValorIntoInt(valor: string): number{
+    return Number(valor.replace(',','.'))
+  }
 
   ngOnInit() {
+    this.userService.getAll().subscribe(
+          data => {
+            this.topUsers = data
+            
+            this.topUsers.forEach((user : User)=>{
+              user.userScore = 0
+              user.contas.forEach((conta,index)=>{  
+                user.userScore += this.calculateLastTwoScore(user,index)
+              })
+            })
+          },
+          error => {
+            console.log(error);
+          });       
+  }  
+
+  calculateLastTwoScore(user, index){
+      let userCount = 0;
+      if(index != 0 && index != user.contas.length){
+        let contaNova = this.parseValorIntoInt(user.contas[index-1].valor)
+        let contaAntiga = this.parseValorIntoInt(user.contas[index].valor)
+        let porcentagem = 0;
+        if( contaNova > contaAntiga){
+          //fudeu
+          porcentagem = contaAntiga / contaNova * 100
+          userCount -= porcentagem * 100
+        }else{
+          //suave
+          porcentagem = contaNova / contaAntiga * 100
+          userCount += porcentagem * 1000
+        }
+      }
+      return  Math.trunc(userCount);
   }
 
 }

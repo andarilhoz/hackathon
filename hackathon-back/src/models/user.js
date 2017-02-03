@@ -15,7 +15,7 @@ const UserSchema = mongoose.Schema({
     ultimoGasto: String,
     contas: [{
         dataCadastro: {type: String, default: Date.now} ,
-        mes:  {type: String, unique: true, dropDups: true, default: Date.now} ,
+        mes:  {type: String, default: Date.now} ,
         valor: String,
         situacao: String
     }],

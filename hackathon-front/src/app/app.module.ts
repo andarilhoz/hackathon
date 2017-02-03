@@ -5,7 +5,9 @@ import { HttpModule } from '@angular/http';
 
 //import { materialize } from 'materialize-css';
 //import { MaterializeModule } from 'angular2-materialize';
-import {  AppRoutingModule, routingComponents } from './app.routing';
+import { AuthenticationService } from './shared/authentication.service';
+import { UserService } from './shared/user.service';
+import { AppRoutingModule, routingComponents } from './app.routing';
 import { AppComponent } from './app.component';
 import { TopFiveUsersComponent } from './top-five-users/top-five-users.component';
 import { NavbarComponent } from './navbar/navbar.component';
@@ -42,7 +44,10 @@ import { CarouselComponent } from './carousel/carousel.component';
     HttpModule/*,
     MaterializeModule*/
   ],
-  providers: [],
+  providers: [
+    AuthenticationService,
+    UserService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
