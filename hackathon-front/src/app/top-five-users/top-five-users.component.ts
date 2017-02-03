@@ -23,7 +23,6 @@ export class TopFiveUsersComponent implements OnInit {
     this.userService.getAll().subscribe(
           data => {
             this.topUsers = data
-            
             this.topUsers.forEach((user : User)=>{
               user.userScore = 0
               user.contas.forEach((conta,index)=>{  
