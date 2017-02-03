@@ -1,12 +1,12 @@
 'use strict';
 const express = require('express'),
       user    = require('../models/user'),
-      router  = express.Router();
+      router  = express.Router()
 
 router.get('/image',(req,res) => {
     user.findOne(req.user._id)
         .then(userImage => {
-            res.send(userImage.imageUrl());
+            res.send(userImage.imageUrl())
         });
 });
 
@@ -18,4 +18,4 @@ router.get('/', (req,res) => {
     }
 });
 
-module.exports = router;
+module.exports = router

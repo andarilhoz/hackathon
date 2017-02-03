@@ -1,7 +1,8 @@
 'use strict'
 const User = require('../models/user'),
       bcrypt = require('bcryptjs'),
-      passport = require('passport');
+      passport = require('passport'),
+      conta    = require('./contas')
 
 class UserService{
 
@@ -23,10 +24,15 @@ class UserService{
                         if(err) {
                             console.log(err);
                             return next(err);
+                        }else{
+                            conta.getEletropauloData(fields.inscricao,fields.cpf).then(x =>{
+                                x.map((obj)=>{account.contas.push(obj)});
+                                account.save();
+                                    res.locals  = {};
+                                    res.locals["success"]='Registration Success';
+                                    res.status(201).send(account._id);
+                            })                   
                         }
-                        res.locals  = {};
-                        res.locals["success"]='Registration Success';
-                        res.status(201).send(account._id);
                     });
                 });
             }

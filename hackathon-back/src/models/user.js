@@ -10,19 +10,18 @@ const UserSchema = mongoose.Schema({
 	username: {type: String, unique: true, dropDups: true, required: true},
 	cadastro: {type: Date, default: Date.now} ,
     email: {type: String, unique: true, dropDups: true, required: true},
-    cpf: String,
-    inscricao: String,
+    cpf:  {type: String, unique: true, dropDups: true, required: true},
+    inscricao:  {type: String, unique: true, dropDups: true, required: true},
     ultimoGasto: String,
     contas: [{
-        dataCadastro: {type: Date, default: Date.now} ,
-        data: Date,
+        dataCadastro: {type: String, default: Date.now} ,
+        mes:  {type: String, unique: true, dropDups: true, default: Date.now} ,
         valor: String,
         situacao: String
     }],
     pontuacao: String,
     hash:String
-})
-
+});
 
 
 UserSchema.methods.imageUrl = function(){

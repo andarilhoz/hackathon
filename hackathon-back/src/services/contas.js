@@ -3,14 +3,12 @@
 var Nightmare = require('nightmare');       
 var nightmare = Nightmare({ show: false });
 
-
 const ENDPOINT = 'https://www.aeseletropaulo.com.br/mobile/servicos/login?args=48E1EC4A7C8200A7BA64C2876D52E93B8AE3BB67C76FBB592A01EDE9F0458A13'
 const NUM_INSCRICAO_INPUT = '#ctl00_PlaceHolderMain_controle_txtNumeroInstalacao'
 const CPF_INPUT = '#ctl00_PlaceHolderMain_controle_txtCpfCnpj'
 const ENVIAR_BUTTON = '#ctl00_PlaceHolderMain_controle_btnEnviar'
 
 const INFO_TABLE = '#ctl00_PlaceHolderMain_controle_pnlVizualizarFaturas'
-
 
 /**
  * @param numInscricao
