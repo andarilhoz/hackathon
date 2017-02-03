@@ -30,6 +30,7 @@ export class TopFiveUsersComponent implements OnInit {
               })
             })
             this.topUsers.sort((user1: User, user2:User) => user1.userScore < user2.userScore ? 1 : -1)
+            this.topUsers = this.topUsers.slice(0,4);
           },
           error => {
             console.log(error);
